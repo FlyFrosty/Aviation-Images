@@ -6,6 +6,8 @@ import Toybox.Time.Gregorian;
 import Toybox.Time;
 import Toybox.ActivityMonitor;
  
+//Used images are etiher personnaly captured or open source (https://en.m.wikipedia.org/wiki/File:437og-c17-afghanistan.jpg)
+
 
 class AviationImagesView extends WatchUi.WatchFace {
    
@@ -19,24 +21,35 @@ class AviationImagesView extends WatchUi.WatchFace {
 
     function initialize() {
         WatchFace.initialize();
-                //Assign all the texts
+                //Assign all the texts here wasn't working
     }
 
     // Load your resources here
     function onLayout(dc) as Void {
 
-        if (whichBG == 0) {
+        if (whichBG == 1) {
             setLayout(Rez.Layouts.WatchFace(dc));
-        } else if (whichBG == 1) {
-            setLayout(Rez.Layouts.LandingWatchFace(dc));
         } else if (whichBG == 2) {
-            setLayout(Rez.Layouts.HUDWatchFace(dc));
+            setLayout(Rez.Layouts.LandingWatchFace(dc));
         } else if (whichBG == 3) {
+            setLayout(Rez.Layouts.HUDWatchFace(dc));
+        } else if (whichBG == 4) {
             setLayout(Rez.Layouts.C17WatchFace(dc));
-        } else {
+        } else if (whichBG == 5) {
             setLayout(Rez.Layouts.PhenomWatchFace(dc));
+        } else if (whichBG == 6) {
+            setLayout(Rez.Layouts.NoseWatchFace(dc));
+        } else if (whichBG == 7) {
+            setLayout(Rez.Layouts.CubWatchFace(dc));
+        } else if (whichBG == 8) {
+            setLayout(Rez.Layouts.TetonsWatchFace(dc));
+        } else if (whichBG == 9) {
+            setLayout(Rez.Layouts.OKWatchFace(dc));
+        } else {
+            dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_BLACK);
+            dc.clear();
+            setLayout(Rez.Layouts.Blank(dc));
         }
-
     }
 
 
@@ -44,17 +57,29 @@ class AviationImagesView extends WatchUi.WatchFace {
     function onUpdate(dc) as Void {
 
         if (whichBG != oldWhichBG) {
-            if (whichBG == 0) {
+            if (whichBG == 1) {
                 setLayout(Rez.Layouts.WatchFace(dc));
-            } else if (whichBG == 1) {
-                setLayout(Rez.Layouts.LandingWatchFace(dc));
             } else if (whichBG == 2) {
-                setLayout(Rez.Layouts.HUDWatchFace(dc));
+                setLayout(Rez.Layouts.LandingWatchFace(dc));
             } else if (whichBG == 3) {
+                setLayout(Rez.Layouts.HUDWatchFace(dc));
+            } else if (whichBG == 4) {
                 setLayout(Rez.Layouts.C17WatchFace(dc));
-            } else {
+            } else if (whichBG == 5) {
                 setLayout(Rez.Layouts.PhenomWatchFace(dc));
-            }
+            } else if (whichBG == 6) {
+                setLayout(Rez.Layouts.NoseWatchFace(dc));
+            } else if (whichBG == 7) {
+                setLayout(Rez.Layouts.CubWatchFace(dc));
+            } else if (whichBG == 8) {
+                setLayout(Rez.Layouts.TetonsWatchFace(dc));
+            } else if (whichBG == 9) {
+                setLayout(Rez.Layouts.OKWatchFace(dc));
+            } else {
+                dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_BLACK);
+                dc.clear();
+                setLayout(Rez.Layouts.Blank(dc));
+            }  
             oldWhichBG = whichBG;
         }
 

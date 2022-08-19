@@ -2,11 +2,16 @@
 
     <setting propertyKey="@Properties.BGOpt" title="@Strings.BGOptTitle" prompt="@Strings.BGOptPrompt">
         <settingConfig type="list">
-            <listEntry value="0">@Strings.Brushed</listEntry>
-            <listEntry value="1">@Strings.Landing</listEntry>
-            <listEntry value="2">@Strings.HUD</listEntry>
-            <listEntry value="3">@Strings.C17</listEntry>
-            <listEntry value="4">@Strings.Phenom</listEntry>
+            <listEntry value="0">@Strings.Black</listEntry>
+            <listEntry value="1">@Strings.Brushed</listEntry>
+            <listEntry value="2">@Strings.Landing</listEntry>
+            <listEntry value="3">@Strings.HUD</listEntry>
+            <listEntry value="4">@Strings.C17</listEntry>
+            <listEntry value="5">@Strings.Phenom</listEntry>
+            <listEntry value="6">@Strings.Nose</listEntry>
+            <listEntry value="7">@Strings.Cub</listEntry>
+            <listEntry value="8">@Strings.Tetons</listEntry>
+            <listEntry value="9">@Strings.OK</listEntry>
         </settingConfig>
     </setting> 
 
