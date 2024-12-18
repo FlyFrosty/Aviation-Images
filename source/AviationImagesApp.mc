@@ -18,6 +18,7 @@ var clockColorSet, clockShadSet, subColorSet;
 var backImg;
 var ForC;
 var dispSecs;
+var touchOff = false;
 
 
 class AviationImagesApp extends Application.AppBase {
@@ -36,10 +37,9 @@ class AviationImagesApp extends Application.AppBase {
     }
 
     // Return the initial view of your application here
-    function getInitialView() as Array<Views or InputDelegates>? {
+    function getInitialView() as [Views] or [Views, InputDelegates] {
         view = new AviationImagesView();
-        return [view, new AviationImagesViewDelegate(view) ] as Array<Views or InputDelegates>;
-
+        return [view, new AviationImagesViewDelegate(view)];
     }
 
     // New app settings have been received so trigger a UI update
@@ -60,6 +60,7 @@ class AviationImagesApp extends Application.AppBase {
         whichBG = Properties.getValue("BGOpt");   
         showNotes = Properties.getValue("ShowNotes"); 
         dispSecs = Properties.getValue("SecOpt");
+        touchOff = Properties.getValue("TouchOff");
 
         ForC = System.getDeviceSettings().temperatureUnits;
 

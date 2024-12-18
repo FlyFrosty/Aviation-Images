@@ -164,11 +164,11 @@ class AviationImagesView extends WatchUi.WatchFace {
 
                     var mPen = 4;
 
-                    var mArc = 360 - (mSeconds * 6);
+                    var mArc = 90 - (mSeconds * 6);
 
                     dc.setPenWidth(mPen);
                     dc.setColor(clockColorSet, Graphics.COLOR_TRANSPARENT);
-                    dc.drawArc(centerX, centerY, mRadius, Graphics.ARC_CLOCKWISE, 0, mArc);
+                    dc.drawArc(centerX, centerY, mRadius, Graphics.ARC_CLOCKWISE, 90, mArc);
             }
         
     }
@@ -237,7 +237,7 @@ class AviationImagesView extends WatchUi.WatchFace {
 
                     var mPen = 4;
 
-                    var mArc = 360 - (mSeconds * 6);
+                    var mArc = 90 - (mSeconds * 6);
 
                     dc.setPenWidth(mPen);
                     dc.setColor(clockColorSet, Graphics.COLOR_TRANSPARENT);
@@ -284,7 +284,7 @@ class AviationImagesView extends WatchUi.WatchFace {
                 if (ForC == System.UNIT_METRIC) {
                     batString = Lang.format("$1$", [wxNow])+"°";
                 } else {
-                    wxNow = wxNow * 9 / 5 + 32;
+                    wxNow = (wxNow * 9 / 5 + 32).toNumber();
                     batString = Lang.format("$1$", [wxNow])+"°";
                 }
             } else if (showBat == 0) {
@@ -366,7 +366,7 @@ class AviationImagesViewDelegate extends WatchUi.WatchFaceDelegate
         var batY = view.batY * view.wHeight;
         var stepY = view.stepY * view.wHeight;
 
-        if (c[1] <= batY) {
+        if (!touchOff && c[1] <= batY) {
 
             if (showBat == 0 && view.batId != null) {
                 Complications.exitTo(view.batId);
@@ -378,10 +378,10 @@ class AviationImagesViewDelegate extends WatchUi.WatchFaceDelegate
                 return false;
             }
 
-        } else if (c[1] > batY && c[1] <= stepY && view.calId != null) {
+        } else if (!touchOff && c[1] > batY && c[1] <= stepY && view.calId != null) {
             Complications.exitTo(view.calId);
             return true;
-        } else if (view.stepId != null) {
+        } else if (!touchOff && view.stepId != null) {
             Complications.exitTo(view.stepId);
             return true;
         } else {
