@@ -5,29 +5,27 @@ import Toybox.Graphics;
 
 var view;
 
-var showBat;
-var clockColorNum;
-var clockShadNum;
-var subColorNum;
-var showNotes;
-var whichBG, whichBGUpdated;
-var timeOrStep;
+var showBat = 0;
+var clockColorNum = 10;
+var clockShadNum = 0;
+var subColorNum = 0;
+var showNotes = false;
+var whichBG = 1;
+var whichBGUpdated;
+var timeOrStep = true; 
 var oldClockColorNum, oldClockShadNum, oldSubColorNum, oldWhichBG;
 var colorsUpdated;
 var clockColorSet, clockShadSet, subColorSet;
 var backImg;
 var ForC;
-var dispSecs;
+var dispSecs = true;
 var touchOff = false;
 
 
 class AviationImagesApp extends Application.AppBase {
 
     function initialize() {
-        AppBase.initialize();
-
-        ForC = System.getDeviceSettings().temperatureUnits;
-        
+        AppBase.initialize();        
         onSettingsChanged();
 
     }
@@ -42,13 +40,18 @@ class AviationImagesApp extends Application.AppBase {
         return [view, new AviationImagesViewDelegate(view)];
     }
 
+    function getSettingsView() as [Views] or [Views, InputDelegates] or Null {
+        
+        var menu = new AISettingsMenu();
+        return [menu, new AISettingsMenuDelegate()];
+    }
+
     // New app settings have been received so trigger a UI update
     function onSettingsChanged() as Void {
 
         if (clockColorNum != null) {oldClockColorNum = clockColorNum;}
         if (clockShadNum != null) {oldClockShadNum = clockShadNum;}
         if (subColorNum != null) {oldSubColorNum = subColorNum;}
-
         if (whichBG != null) {oldWhichBG = whichBG;}
 
 
@@ -61,6 +64,7 @@ class AviationImagesApp extends Application.AppBase {
         showNotes = Properties.getValue("ShowNotes"); 
         dispSecs = Properties.getValue("SecOpt");
         touchOff = Properties.getValue("TouchOff");
+
 
         ForC = System.getDeviceSettings().temperatureUnits;
 
