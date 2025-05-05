@@ -10,4 +10,6 @@
     <bitmap id= "Tetons" filename= "Tetons.jpg" scaleRelativeTo="screen" scaleX="100%" />
     <bitmap id= "OK" filename= "OK.jpg" scaleRelativeTo="screen" scaleX="100%" />
     <bitmap id= "Sunset" filename= "Sunset.jpg" scaleRelativeTo="screen" scaleX="100%" />
+    <bitmap id="envelope" filename="Envelope.png" />
+    <bitmap id="clock" filename="Clock.png" />
 </drawables>
