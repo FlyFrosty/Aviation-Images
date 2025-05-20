@@ -34,13 +34,13 @@ class AISettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
 
     function onSelect(item as MenuItem) as Void {
         var id = item.getId();
+
         if (id.equals("steps")) {
-            menuSelector = 1;
+            timeOrStep = 1;
         } else {
-            menuSelector = 0;
+            timeOrStep = 0;
         }
         Application.Properties.setValue("TimeStep", menuSelector);
-        timeOrStep = menuSelector;
         onBack();
     }
 

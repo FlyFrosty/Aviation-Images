@@ -16,8 +16,7 @@ var timeOrStep = true;
 var oldClockColorNum, oldClockShadNum, oldSubColorNum, oldWhichBG;
 var colorsUpdated;
 var clockColorSet, clockShadSet, subColorSet;
-var backImg;
-var ForC;
+var backImg = WatchUi.loadResource(Rez.Drawables.Brushed);;
 var dispSecs = true;
 var touchOff = false;
 
@@ -66,7 +65,7 @@ class AviationImagesApp extends Application.AppBase {
         touchOff = Properties.getValue("TouchOff");
 
 
-        ForC = System.getDeviceSettings().temperatureUnits;
+
 
         if (oldClockColorNum != clockColorNum || oldClockShadNum != clockShadNum
             || oldSubColorNum != subColorNum) {
